@@ -1,0 +1,13 @@
+workflows:
+  android-debug-apk:
+    name: PadelClickScore Debug APK
+    max_build_duration: 60
+    environment:
+      java: 17
+    scripts:
+      - name: Build debug APK
+        script: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
